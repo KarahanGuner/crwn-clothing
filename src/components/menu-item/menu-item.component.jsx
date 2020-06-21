@@ -13,5 +13,5 @@ const MenuItem = ({title, imageUrl, size, history, linkUrl, match}) => (
     </div>
 </div>
 )
-
+//normmally compenents in Route tag have access to history prop, withRouter allows other components to have access to it
 export default withRouter(MenuItem);
