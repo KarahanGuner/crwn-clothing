@@ -1,9 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+
 import {auth} from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import {selectCartHidden} from '../../redux/cart/cart.selectors';
+import {selectCurrentUser} from '../../redux/user/user.selectors';
 import { ReactComponent as Logo} from '../../assets/crown.svg';
 import './header.styles.scss';
 
@@ -36,8 +39,8 @@ const Header = ({currentUser, hidden}) => (
 
 const mapStateToProps = state => ({ //function that allows us to access the state.
     //currentUser on the LHS is the one in line 8. state is rootreducer. state.user is the user reducer. and the currentUser in the RHS is the prop in user reducer .
-    currentUser: state.user.currentUser,
-    hidden: state.cart.hidden
+    currentUser: selectCurrentUser(state),
+    hidden: selectCartHidden(state)
 
 })
 
