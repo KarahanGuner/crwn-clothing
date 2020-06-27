@@ -7,7 +7,7 @@ export const selectCartItems = createSelector(//output selector. createSelector 
     (cart) => cart.cartItems
 )
 
-export const selectCartHidden = createSelector(
+export const selectCartHidden = createSelector(//when output selectors are summoned they send the information and cashe the it.
     [selectCart],
     cart => cart.hidden
 )
